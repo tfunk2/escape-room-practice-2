@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import GameContainer from './components/GameContainer'
 
 class App extends Component {
   render() {
@@ -8,6 +9,7 @@ class App extends Component {
         <header className="App-header">
           <h1>Escape Room Game Practice</h1>
         </header>
+        <GameContainer />
       </div>
     );
   }
