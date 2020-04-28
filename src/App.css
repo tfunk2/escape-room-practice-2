@@ -1,0 +1,72 @@
+#box-container-ul {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    background-color: aqua;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+.backpack {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 5px 10px;
+    text-align: center;
+    background-color: rgb(212, 156, 52);
+}
+
+/* #box-1 {
+}
+
+#box-2 {
+}
+
+#box-3 {
+}
+
+#box-4 {
+}
+
+#box-5 {
+}
+
+#box-6 {
+}
+
+#box-7 {
+}
+
+#box-8 {
+}
+
+#box-9 {
+}
+
+#box-10 {
+}
+
+#box-11 {
+}
+
+#box-12 {
+}
+
+#box-13 {
+}
+
+#box-14 {
+}
+
+#box-15 {
+}
+
+#box-16 {
+} */
