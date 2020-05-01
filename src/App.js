@@ -6,67 +6,117 @@ import Backpack from './components/Backpack'
 const allBoxes = [
   {
     unlockable: "welcome box", 
-    tool: "screwdriver"
+    unlockableImageURL: "https://toppng.com/uploads/preview/cardboard-box-png-clip-art-11532765008imwit9pfmv.png",
+    toolUsedToUnlock: null,
+    tool: "screwdriver",
+    toolImageURL: "http://clipart-library.com/images_k/screwdriver-transparent/screwdriver-transparent-2.png"
   },
   {
+    // NEED TO FILL IN UNLOCKABLEIMAGEURL FOR EACH OBJECT BELOW
     unlockable: "4 screws", 
-    tool: "lighter"
+    unlockableImageURL: "",
+    toolUsedToUnlock: "screwdriver",
+    tool: "lighter",
+    toolImageURL: "http://clipart-library.com/img1/218736.png"
   },
   {
     unlockable: "fireworks wick", 
-    tool: "stethoscope"
+    unlockableImageURL: "",
+    toolUsedToUnlock: "lighter",
+    tool: "stethoscope",
+    toolImageURL: 
+      "http://clipart-library.com/newhp/Free-cardiology-stethoscope-health-high-resolution-clip-art-all.png"
   }, 
   {
     unlockable: "safe", 
-    tool: "straw"
+    unlockableImageURL: "",
+    toolUsedToUnlock: "stethoscope",
+    tool: "straw",
+    toolImageURL: "https://www.stickpng.com/assets/images/5a9aac1d9fc609199d0ff040.png"
   },
   {
-    unlockable: "button behind grate", 
-    tool: "flashlight"
+    unlockable: "button under water", 
+    unlockableImageURL: "",
+    toolUsedToUnlock: "straw",
+    tool: "flashlight",
+    toolImageURL: "https://pngimg.com/uploads/flashlight/flashlight_PNG55977.png"
   },
   {
     unlockable: "dark box", 
-    tool: "chain saw"
+    unlockableImageURL: "",
+    toolUsedToUnlock: "flashlight",
+    tool: "chain saw",
+    toolImageURL: "https://pngimg.com/uploads/chainsaw/chain_saw_PNG18517.png"
   },
   {
     unlockable: "logs", 
-    tool: "batteries"
+    unlockableImageURL: "",
+    toolUsedToUnlock: "chain saw",
+    tool: "batteries",
+    toolImageURL: "https://i.ya-webdesign.com/images/aa-battery-png-1.png"
   },
   {
     unlockable: "empty battery slots", 
-    tool: "hammer"
+    unlockableImageURL: "",
+    toolUsedToUnlock: "batteries",
+    tool: "hammer",
+    toolImageURL: "http://clipart-library.com/image_gallery2/Hammer-PNG-Clipart.png"
   },
   {
     unlockable: "4 nails", 
-    tool: "scissors"
+    unlockableImageURL: "",
+    toolUsedToUnlock: "hammer",
+    tool: "scissors",
+    toolImageURL: "http://clipart-library.com/images/pi58g6dAT.png"
   },
   {
     unlockable: "ribbon", 
-    tool: "crowbar"
+    unlockableImageURL: "",
+    toolUsedToUnlock: "scissors",
+    tool: "crowbar",
+    toolImageURL: "http://clipart-library.com/img1/385845.png"
   }, 
   {
     unlockable: "wooden box", 
-    tool: "credit card"
+    unlockableImageURL: "",
+    toolUsedToUnlock: "crowbar",
+    tool: "credit card",
+    toolImageURL: "http://clipart-library.com/newhp/credit-card-clipart.png"
   },
   {
     unlockable: "keypad with swipe", 
-    tool: "lockpick"
+    unlockableImageURL: "",
+    toolUsedToUnlock: "credit card",
+    tool: "lockpick",
+    toolImageURL: "https://gamepedia.cursecdn.com/dayz_gamepedia/a/ac/Lockpick.png"
   },
   {
     unlockable: "new keyhole", 
-    tool: "C4"
+    unlockableImageURL: "",
+    toolUsedToUnlock: "lockpick",
+    tool: "dynamite",
+    toolImageURL: "https://pngimg.com/uploads/dynamite/dynamite_PNG28.png"
   },
   {
     unlockable: "metal box", 
-    tool: "paper clip"
+    unlockableImageURL: "",
+    toolUsedToUnlock: "dynamite",
+    tool: "paper clip",
+    toolImageURL: "http://clipart-library.com/newhp/Colorful_Paper_Clips_PNG_Clipart_Image.png"
   },
   {
     unlockable: "old keyhole",
-    tool: "master key"
+    unlockableImageURL: "",
+    toolUsedToUnlock: "paper clip",
+    tool: "master key",
+    toolImageURL: "http://clipart-library.com/image_gallery/456776.png"
   },
   {
     unlockable: "master lock", 
-    tool: "You escaped!"
+    unlockableImageURL: "",
+    toolUsedToUnlock: "master key",
+    tool: "treasure",
+    toolImageURL: "http://clipart-library.com/images/pT7rLkkac.png"
   }
 ]
 
@@ -86,8 +136,16 @@ class App extends Component {
   }
 
   addToBackpack = (boxItem) => {
-    if (!this.state.backpackItems.find(backpackItem => backpackItem == boxItem)) {
-      this.setState({backpackItems: [...this.state.backpackItems, boxItem]})
+    if (!this.state.backpackItems.find(backpackItem => backpackItem === boxItem)) {
+      this.setState({ backpackItems: [...this.state.backpackItems, boxItem] })
+    }
+  }
+
+  checkBackpackForItem = (necessaryBackpackItem) => {
+    if (this.state.backpackItems.find(
+      backpackItem => backpackItem.tool === necessaryBackpackItem.toolUsedToUnlock)
+    ) {
+      return true
     }
   }
 
@@ -97,8 +155,15 @@ class App extends Component {
         <header className="App-header">
           <h1>Escape Room Game Practice</h1>
         </header>
-        <GameContainer boxes={this.state.boxes} addToBackpack={this.addToBackpack}/>
-        <Backpack backpackItems={this.state.backpackItems}/>
+        <GameContainer 
+          boxes={this.state.boxes} 
+          addToBackpack={this.addToBackpack}
+          checkBackpackForItem={this.checkBackpackForItem}
+          backpackItems={this.state.backpackItems}
+        />
+        <Backpack 
+        backpackItems={this.state.backpackItems}
+        />
       </div>
     );
   }

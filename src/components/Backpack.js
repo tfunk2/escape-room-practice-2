@@ -1,13 +1,13 @@
 import React from 'react'
-import Box from './Box'
+import BackpackItem from './BackpackItem'
 
 export default function Backpack(props) {
 
     let i = 0
-    const makeBackpackItems = props.backpackItems.map(box => {
+    const makeBackpackItems = props.backpackItems.map(backpackItem => {
         i += 1
         const newId = `backpack-item-${i}`
-        return <Box box={box} backpackId={newId}/>
+        return <BackpackItem backpackItem={backpackItem} backpackId={newId} key={backpackItem.id} />
     })
 
     return (

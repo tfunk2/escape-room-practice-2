@@ -6,7 +6,15 @@ export default function GameContainer(props) {
     const makeBoxes = props.boxes.map(box => {
         i += 1
         const newId = `box-${i}`
-        return <Box box={box} elementId={newId} addToBackpack={props.addToBackpack}/>
+        return <Box 
+            key={newId}
+            box={box} 
+            idNumber={i}
+            elementId={newId} 
+            addToBackpack={props.addToBackpack}
+            checkBackpackForItem={props.checkBackpackForItem}
+            backpackItems={props.backpackItems}
+        />
     })
 
     return (

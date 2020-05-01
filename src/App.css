@@ -23,6 +23,33 @@
     background-color: rgb(212, 156, 52);
 }
 
+li {
+    margin-bottom: 20px;
+}
+
+.backpack-image {
+    max-width: 200px;
+    max-height: 100px;
+}
+
+.backpack-item {
+    text-align: center;
+}
+
+.box-item-image {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+/* .open-box {
+    width: 200px;
+    height: 200px;
+    background-image: url('https://images.vexels.com/media/users/3/128334/isolated/preview/6a6abbf568d80027a96b021a288e0562-open-cardboard-box-by-vexels.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+} */
+
 /* #box-1 {
 }
 
