@@ -19,8 +19,9 @@ export default function GameContainer(props) {
 
     return (
         <div className="game-container">
-            <h2>Escape Using Tools in Boxes!</h2>
+            <h2>Find the treasure!</h2>
             <ul id="box-container-ul">
+                
                 {makeBoxes}
             </ul>
         </div>

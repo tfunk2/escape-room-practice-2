@@ -10,21 +10,26 @@
 .backpack {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-wrap: wrap;
     list-style-type: none;
 }
 
 .box {
+    color: white;
     width: 200px;
     height: 200px;
-    box-shadow: 0 5px 10px;
+    /* box-shadow: rgb(0, 0, 0) 0 5px 10px; */
     text-align: center;
-    background-color: rgb(212, 156, 52);
+    
 }
 
-li {
+#box-container-ul li {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 20px;
+    margin-top: 20px;
+    align-content: center;
 }
 
 .backpack-image {
@@ -33,12 +38,16 @@ li {
 }
 
 .backpack-item {
+    margin-top: 20px;
     text-align: center;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .box-item-image {
     max-width: 100px;
     max-height: 100px;
+    background-image: none;
 }
 
 /* .open-box {
@@ -50,50 +59,135 @@ li {
     text-align: center;
 } */
 
-/* #box-1 {
+#welcome-box {
+    background-image: url('./images/square-cardboard-box-with-a-sticky-tape-cardboard-background-top-view-picture_csp64402612.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    border-radius: 6px;
 }
 
-#box-2 {
+#four-screws {
+    background-image: url('./images/metal-plate3.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    border-radius: 11px;
 }
 
-#box-3 {
+#unlit-wood{
+    background-image: url('./images/unlit-wood.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    border-radius: 6px;
 }
 
-#box-4 {
+#safe {
+    background-image: url("./images/dial-safe.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
 }
 
-#box-5 {
+#button-under-water {
+    background-image: url('./images/underwater-button.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    border-radius: 80px;
+
 }
 
-#box-6 {
+#dark-box {
+    background-image: url('./images/dark-box.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    border-radius: 6px;
 }
 
-#box-7 {
+#logs {
+    background-image: url('./images/logs.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
 }
 
-#box-8 {
+#empty-battery-slots {
+    background-image: url('./images/battery-slots.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
 }
 
-#box-9 {
+#four-nails {
+    background-image: url('./images/four-nails.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    border-radius: 6px;
+
 }
 
-#box-10 {
+#pallet-with-rope {
+    background-image: url('./images/pallet-with-rope.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    border-radius: 6px;
 }
 
-#box-11 {
+#wooden-box {
+    background-image: url('./images/wooden-crate.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    border-radius: 3px;
 }
 
-#box-12 {
+#keypad-with-swipe {
+    display: flex;
+    background-image: url("./images/safe.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
+    justify-content: center;
 }
 
-#box-13 {
+#new-keyhole {
+    background-image: url("./images/key-safe2.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
 }
 
-#box-14 {
+#boulder {
+    background-image: url("./images/boulder2.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
 }
 
-#box-15 {
+#old-keyhole {
+    background-image: url("./images/filing-cabinet-with-lock.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
 }
 
-#box-16 {
-} */
+#master-lock {
+    background-image: url("./images/master-chest.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+#backpack-image {
+    max-width: 200px;
+    margin-bottom: 20px;
+}

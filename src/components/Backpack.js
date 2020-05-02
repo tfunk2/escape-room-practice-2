@@ -1,5 +1,6 @@
 import React from 'react'
 import BackpackItem from './BackpackItem'
+import BackpackImage from '../images/arrow-backpack2.png'
 
 export default function Backpack(props) {
 
@@ -12,7 +13,7 @@ export default function Backpack(props) {
 
     return (
         <div className="backpack">
-            <h2>Backpack</h2>
+            <img id="backpack-image" alt="backpack with arrow pointing inside" src={BackpackImage}></img>
             {makeBackpackItems}
         </div>
     )
