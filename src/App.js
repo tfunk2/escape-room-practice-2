@@ -5,118 +5,84 @@ import Backpack from './components/Backpack'
 
 const allBoxes = [
   {
-    unlockable: "welcome box", 
-    unlockableImageURL: "https://toppng.com/uploads/preview/cardboard-box-png-clip-art-11532765008imwit9pfmv.png",
+    unlockable: "welcome-box", 
     toolUsedToUnlock: null,
-    tool: "screwdriver",
-    toolImageURL: "http://clipart-library.com/images_k/screwdriver-transparent/screwdriver-transparent-2.png"
+    tool: "screwdriver"
   },
   {
-    // NEED TO FILL IN UNLOCKABLEIMAGEURL FOR EACH OBJECT BELOW
-    unlockable: "4 screws", 
-    unlockableImageURL: "",
+    unlockable: "four-screws", 
     toolUsedToUnlock: "screwdriver",
-    tool: "lighter",
-    toolImageURL: "http://clipart-library.com/img1/218736.png"
+    tool: "lighter"
   },
   {
-    unlockable: "fireworks wick", 
-    unlockableImageURL: "",
+    unlockable: "unlit-wood", 
     toolUsedToUnlock: "lighter",
-    tool: "stethoscope",
-    toolImageURL: 
-      "http://clipart-library.com/newhp/Free-cardiology-stethoscope-health-high-resolution-clip-art-all.png"
+    tool: "stethoscope"
   }, 
   {
     unlockable: "safe", 
-    unlockableImageURL: "",
     toolUsedToUnlock: "stethoscope",
-    tool: "straw",
-    toolImageURL: "https://www.stickpng.com/assets/images/5a9aac1d9fc609199d0ff040.png"
+    tool: "straw"
   },
   {
-    unlockable: "button under water", 
-    unlockableImageURL: "",
+    unlockable: "button-under-water", 
     toolUsedToUnlock: "straw",
-    tool: "flashlight",
-    toolImageURL: "https://pngimg.com/uploads/flashlight/flashlight_PNG55977.png"
+    tool: "flashlight"
   },
   {
-    unlockable: "dark box", 
-    unlockableImageURL: "",
+    unlockable: "dark-box", 
     toolUsedToUnlock: "flashlight",
-    tool: "chain saw",
-    toolImageURL: "https://pngimg.com/uploads/chainsaw/chain_saw_PNG18517.png"
+    tool: "chain saw"
   },
   {
     unlockable: "logs", 
-    unlockableImageURL: "",
     toolUsedToUnlock: "chain saw",
-    tool: "batteries",
-    toolImageURL: "https://i.ya-webdesign.com/images/aa-battery-png-1.png"
+    tool: "batteries"
   },
   {
-    unlockable: "empty battery slots", 
-    unlockableImageURL: "",
+    unlockable: "empty-battery-slots", 
     toolUsedToUnlock: "batteries",
-    tool: "hammer",
-    toolImageURL: "http://clipart-library.com/image_gallery2/Hammer-PNG-Clipart.png"
+    tool: "hammer"
   },
   {
-    unlockable: "4 nails", 
-    unlockableImageURL: "",
+    unlockable: "four-nails", 
     toolUsedToUnlock: "hammer",
-    tool: "scissors",
-    toolImageURL: "http://clipart-library.com/images/pi58g6dAT.png"
+    tool: "scissors"
   },
   {
-    unlockable: "ribbon", 
-    unlockableImageURL: "",
+    unlockable: "pallet-with-rope", 
     toolUsedToUnlock: "scissors",
-    tool: "crowbar",
-    toolImageURL: "http://clipart-library.com/img1/385845.png"
+    tool: "crowbar"
   }, 
   {
-    unlockable: "wooden box", 
-    unlockableImageURL: "",
+    unlockable: "wooden-box", 
     toolUsedToUnlock: "crowbar",
-    tool: "credit card",
-    toolImageURL: "http://clipart-library.com/newhp/credit-card-clipart.png"
+    tool: "credit card"
   },
   {
-    unlockable: "keypad with swipe", 
-    unlockableImageURL: "",
+    unlockable: "keypad-with-swipe", 
     toolUsedToUnlock: "credit card",
-    tool: "lockpick",
-    toolImageURL: "https://gamepedia.cursecdn.com/dayz_gamepedia/a/ac/Lockpick.png"
+    tool: "lockpick"
   },
   {
-    unlockable: "new keyhole", 
-    unlockableImageURL: "",
+    unlockable: "new-keyhole", 
     toolUsedToUnlock: "lockpick",
-    tool: "dynamite",
-    toolImageURL: "https://pngimg.com/uploads/dynamite/dynamite_PNG28.png"
+    tool: "dynamite"
   },
   {
-    unlockable: "metal box", 
-    unlockableImageURL: "",
+    unlockable: "boulder", 
     toolUsedToUnlock: "dynamite",
-    tool: "paper clip",
-    toolImageURL: "http://clipart-library.com/newhp/Colorful_Paper_Clips_PNG_Clipart_Image.png"
+    tool: "paper clip"
   },
   {
-    unlockable: "old keyhole",
-    unlockableImageURL: "",
+    unlockable: "old-keyhole",
     toolUsedToUnlock: "paper clip",
-    tool: "master key",
-    toolImageURL: "http://clipart-library.com/image_gallery/456776.png"
+    tool: "master key"
   },
   {
-    unlockable: "master lock", 
-    unlockableImageURL: "",
+    unlockable: "master-lock", 
     toolUsedToUnlock: "master key",
-    tool: "treasure",
-    toolImageURL: "http://clipart-library.com/images/pT7rLkkac.png"
+    tool: "treasure"
   }
 ]
 
@@ -124,7 +90,13 @@ class App extends Component {
 
   state = {
     boxes: [],
-    backpackItems: []
+    backpackItems: [
+      {
+        unlockable: null, 
+        toolUsedToUnlock: null,
+        tool: "pocket knife"
+      }
+    ]
   }
   
   shuffle = (array) => {
@@ -155,14 +127,14 @@ class App extends Component {
         <header className="App-header">
           <h1>Escape Room Game Practice</h1>
         </header>
+        <Backpack 
+          backpackItems={this.state.backpackItems}
+        />
         <GameContainer 
           boxes={this.state.boxes} 
           addToBackpack={this.addToBackpack}
           checkBackpackForItem={this.checkBackpackForItem}
           backpackItems={this.state.backpackItems}
-        />
-        <Backpack 
-        backpackItems={this.state.backpackItems}
         />
       </div>
     );

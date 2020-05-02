@@ -25,15 +25,18 @@ export default class Box extends Component {
     }
 
     handleClick = () => {
-        if (this.props.checkBackpackForItem(this.props.box) || this.props.box.unlockable === 'welcome box') {
-            this.setState({ [this.props.box.key]: true })
+        if (this.props.checkBackpackForItem(this.props.box) || this.props.box.unlockable === 'welcome-box') {
+            this.setState({ [this.props.box.id]: true })
         }
     }
 
     render() {
         return (
-            <li className={/*this.props.checkBackpackForItem(this.props.box) ? 'open-box' : */'box'} id={this.props.elementId} onClick={this.handleClick}>
-                <h1>?</h1>
+            <li 
+                className={'box'} 
+                id={this.props.box.unlockable} 
+                onClick={this.handleClick}
+            >
                 <div id={`tool-text-${this.props.elementId}`}>
                     {
                         this.state[this.props.box.idNumber] === true &&
@@ -42,6 +45,7 @@ export default class Box extends Component {
                             box={this.props.box} 
                             elementId={this.props.elementId} 
                             addToBackpack={this.props.addToBackpack}
+                            idNumber={this.props.box.idNumber}
                         /> : <div></div>
                     }
                 </div>
