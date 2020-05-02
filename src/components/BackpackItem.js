@@ -69,7 +69,7 @@ export default function BackpackItem(props) {
             case 'master key':
               return masterKey;
               break;
-            case 'treasure':
+            case 'You found the treasure!':
               return treasure;
               break;
             default:

@@ -82,7 +82,7 @@ const allBoxes = [
   {
     unlockable: "master-lock", 
     toolUsedToUnlock: "master key",
-    tool: "treasure"
+    tool: "You found the treasure!"
   }
 ]
 
