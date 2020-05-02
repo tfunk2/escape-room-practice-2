@@ -2,9 +2,14 @@
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-template-rows: auto auto auto auto;
-    background-color: aqua;
     justify-content: space-evenly;
     list-style-type: none;
+}
+
+.game-container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgb(68, 68, 68);
 }
 
 .backpack {
@@ -21,7 +26,34 @@
     height: 200px;
     /* box-shadow: rgb(0, 0, 0) 0 5px 10px; */
     text-align: center;
-    
+}
+
+/* .box:hover {
+    animation: boxDance 0.5s linear; */
+    /* animation-play-state: playing; */
+  /* } */
+
+@keyframes boxDance {
+    0% {
+      transform: translate(0px, 0%);
+    }
+    25% {
+      transform: rotate(0.01turn);
+    }
+    50% {
+      transform: rotate(-0.01turn);
+    }
+    75% {
+      transform: rotate(0.01turn);
+    }
+    100% {
+      transform: translate(0px, 0%);
+    }
+}
+
+.tool-div {
+    animation: none;
+    animation-play-state: paused;
 }
 
 #box-container-ul li {
@@ -44,20 +76,14 @@
     margin-left: 10px;
 }
 
-.box-item-image {
-    max-width: 100px;
-    max-height: 100px;
-    background-image: none;
-}
-
-/* .open-box {
+.open-box {
     width: 200px;
     height: 200px;
-    background-image: url('https://images.vexels.com/media/users/3/128334/isolated/preview/6a6abbf568d80027a96b021a288e0562-open-cardboard-box-by-vexels.png'); 
+    background-image: url('./images/open-box.png'); 
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
-} */
+}
 
 #welcome-box {
     background-image: url('./images/square-cardboard-box-with-a-sticky-tape-cardboard-background-top-view-picture_csp64402612.jpg');
@@ -67,12 +93,28 @@
     border-radius: 6px;
 }
 
+#welcome-box-tool-image {
+    max-width: 125px;
+    margin-top: 20px;
+}
+
+/* #welcome-box:hover {
+    animation: slightlyGrow 1s linear infinite;
+    animation-play-state: playing;
+  } */
+
 #four-screws {
     background-image: url('./images/metal-plate3.png');
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
     border-radius: 11px;
+}
+
+#four-screws-tool-image {
+    max-width: 80px;
+    max-height: 80px;
+    margin-top: 40px;
 }
 
 #unlit-wood{
@@ -83,12 +125,20 @@
     border-radius: 6px;
 }
 
+/* #unlit-wood-tool-image {
+
+} */
+
 #safe {
     background-image: url("./images/dial-safe.png");
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
 }
+
+/* #safe-tool-image {
+
+} */
 
 #button-under-water {
     background-image: url('./images/underwater-button.png');
@@ -99,12 +149,24 @@
 
 }
 
+#button-under-water-tool-image {
+    margin-top: 40px;
+    max-width: 125px;
+    max-height: 125px;
+}
+
 #dark-box {
     background-image: url('./images/dark-box.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
     border-radius: 6px;
+}
+
+#dark-box-tool-image {
+    margin-top: 0px;
+    max-width: 250px;
+    max-height: 250px;
 }
 
 #logs {
@@ -114,11 +176,21 @@
     text-align: center;
 }
 
+#logs-tool-image {
+    margin-top: 50px;
+    max-width: 100px;
+    max-height: 100px;
+}
+
 #empty-battery-slots {
     background-image: url('./images/battery-slots.png');
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
+}
+
+#empty-battery-slots-tool-image {
+    margin-top: 10px;
 }
 
 #four-nails {
@@ -127,7 +199,12 @@
     background-repeat: no-repeat;
     text-align: center;
     border-radius: 6px;
+}
 
+#four-nails-tool-image {
+    margin-top: 40px;
+    max-width: 125px;
+    max-height: 125px;
 }
 
 #pallet-with-rope {
@@ -138,12 +215,22 @@
     border-radius: 6px;
 }
 
+#pallet-with-rope-tool-image {
+    margin-top: 40px;
+}
+
 #wooden-box {
     background-image: url('./images/wooden-crate.png');
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
     border-radius: 3px;
+}
+
+#wooden-box-tool-image {
+    margin-top: 50px;
+    max-width: 80px;
+    max-height: 80px;
 }
 
 #keypad-with-swipe {
@@ -155,12 +242,24 @@
     justify-content: center;
 }
 
+#keypad-with-swipe-tool-image {
+    margin-top: 10px;
+    max-width: 125px;
+    max-height: 125px;
+}
+
 #new-keyhole {
     background-image: url("./images/key-safe2.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     text-align: center;
+}
+
+#new-keyhole-tool-image {
+    margin-top: 40px;
+    max-width: 130px;
+    max-height: 130px;
 }
 
 #boulder {
@@ -171,12 +270,24 @@
     text-align: center;
 }
 
+#boulder-tool-image {
+    margin-top: 80px;
+    max-width: 60px;
+    max-height: 60px;
+}
+
 #old-keyhole {
     background-image: url("./images/filing-cabinet-with-lock.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     text-align: center;
+}
+
+#old-keyhole-tool-image {
+    margin-top: 50px;
+    max-width: 125px;
+    max-height: 125px;
 }
 
 #master-lock {
@@ -187,7 +298,57 @@
     text-align: center;
 }
 
+#master-lock-tool-image {
+    max-height: 200px;
+    max-width: 200px;
+}
+
 #backpack-image {
     max-width: 200px;
     margin-bottom: 20px;
+}
+
+@keyframes bounceIn {
+    0% {
+      transform: translate(10px, 5%);
+    }
+    15% {
+      transform: translate(-30px, -10%);
+    }
+    30% {
+      transform: translate(-65px, 5%);
+    }
+    45% {
+      transform: translate(-95px, -10%);
+    }
+    60% {
+      transform: translate(-130px, 5%);
+    }
+    80% {
+      transform: translate(-165px, -10%);
+    }
+    100% {
+      transform: translate(-200px, 5%);
+    }
+}
+  
+.box-item-image {
+    max-width: 150px;
+    max-height: 150px;
+    background-image: none;
+    animation: bounceIn 0.65s ease-out forwards;
+}
+
+@keyframes slightlyGrow {
+    0% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+  
+.box:hover {
+    animation: slightlyGrow 1s linear infinite;
+    animation-play-state: playing;
 }

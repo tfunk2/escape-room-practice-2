@@ -70,7 +70,7 @@ export default function Tool(props) {
             case 'master key':
               return masterKey;
               break;
-            case 'treasure':
+            case 'You found the treasure!':
               return treasure;
               break;
             default:
@@ -78,67 +78,67 @@ export default function Tool(props) {
           }
     }
 
-    function whichOpenContainerImage() {
-        switch(box.tool) {
-            case '':
-              return screwdriver;
-              break;
-            case '':
-              return lighter;
-              break;
-            case '':
-              return stethoscope;
-              break;
-            case '':
-              return straw;
-              break;
-            case '':
-              return flashlight;
-              break;
-            case '':
-              return chainSaw;
-              break;
-            case '':
-              return batteries;
-              break;
-            case '':
-              return hammer;
-              break;
-            case '':
-              return scissors;
-              break;
-            case '':
-              return crowbar;
-              break;
-            case '':
-              return creditCard;
-              break;
-            case '':
-              return lockpick;
-              break;
-            case '':
-              return dynamite;
-              break;
-            case '':
-              return paperClip;
-              break;
-            case '':
-              return masterKey;
-              break;
-            case '':
-              return treasure;
-              break;
-            default:
-              return null;
-          }
-    }
+    // function whichOpenContainerImage() {
+    //     switch(box.tool) {
+    //         case '':
+    //           return screwdriver;
+    //           break;
+    //         case '':
+    //           return lighter;
+    //           break;
+    //         case '':
+    //           return stethoscope;
+    //           break;
+    //         case '':
+    //           return straw;
+    //           break;
+    //         case '':
+    //           return flashlight;
+    //           break;
+    //         case '':
+    //           return chainSaw;
+    //           break;
+    //         case '':
+    //           return batteries;
+    //           break;
+    //         case '':
+    //           return hammer;
+    //           break;
+    //         case '':
+    //           return scissors;
+    //           break;
+    //         case '':
+    //           return crowbar;
+    //           break;
+    //         case '':
+    //           return creditCard;
+    //           break;
+    //         case '':
+    //           return lockpick;
+    //           break;
+    //         case '':
+    //           return dynamite;
+    //           break;
+    //         case '':
+    //           return paperClip;
+    //           break;
+    //         case '':
+    //           return masterKey;
+    //           break;
+    //         case '':
+    //           return treasure;
+    //           break;
+    //         default:
+    //           return null;
+    //       }
+    // }
 
     return (
-        <div>
+        <div className='tool-div'>
             <img 
                 className='box-item-image' 
                 onClick={handleImageClick} 
-                id={`${box.unlockable}-${idNumber}`} 
+                id={`${box.unlockable}-tool-image`} 
                 alt={box.tool} 
                 src={whichImage()}
             >

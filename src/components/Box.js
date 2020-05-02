@@ -33,7 +33,7 @@ export default class Box extends Component {
     render() {
         return (
             <li 
-                className={'box'} 
+                className={this.state[this.props.box.id] ? 'open-box' : 'box'} 
                 id={this.props.box.unlockable} 
                 onClick={this.handleClick}
             >
@@ -45,7 +45,7 @@ export default class Box extends Component {
                             box={this.props.box} 
                             elementId={this.props.elementId} 
                             addToBackpack={this.props.addToBackpack}
-                            idNumber={this.props.box.idNumber}
+                            idNumber={this.props.idNumber}
                         /> : <div></div>
                     }
                 </div>
