@@ -140,6 +140,7 @@ class GamePageContainer extends Component {
           backpackItems={this.state.backpackItems}
         />
         <GameContainer 
+          usernameState={this.props.usernameState}
           boxes={this.state.boxes} 
           addToBackpack={this.addToBackpack}
           checkBackpackForItem={this.checkBackpackForItem}
