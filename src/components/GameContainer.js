@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import MakeBoxes from './MakeBoxes'
 import Timer from './Timer'
+import TotalMisses from './TotalMisses'
 
 export default class GameContainer extends Component {
 
     state = {
         gameStartedStatus: false,
         gameCompletedStatus: false,
-        userId: null
+        userId: null,
+        totalMisses: 0
     }
 
     componentDidMount() {
@@ -22,6 +24,10 @@ export default class GameContainer extends Component {
     
     findUserInfo = (users) => {
         this.setUserId(users.find(user => user.username === this.props.usernameState))
+    }
+
+    incrementTotalMisses = () => {
+        this.setState({ totalMisses: this.state.totalMisses + 1 })
     }
 
     setUserId = (user) => {
@@ -48,7 +54,18 @@ export default class GameContainer extends Component {
                 {
                     this.state.gameStartedStatus === true && 
                     this.state.gameCompletedStatus !== true ? 
-                    <Timer userId={this.state.userId} gameStartedStatus={this.state.gameStartedStatus}/> : <></>
+                    <Timer 
+                        totalMisses={this.state.totalMisses} 
+                        userId={this.state.userId} 
+                        gameStartedStatus={this.state.gameStartedStatus}
+                    /> : <></>
+                }
+                {
+                    this.state.gameStartedStatus === true && 
+                    this.state.gameCompletedStatus !== true ? 
+                    <TotalMisses 
+                        totalMisses={this.state.totalMisses} 
+                    /> : <></>
                 }
                 {this.state.gameStartedStatus === true ? <MakeBoxes 
                     boxes={this.props.boxes} 
@@ -57,6 +74,8 @@ export default class GameContainer extends Component {
                     backpackItems={this.props.backpackItems}
                     handleGameCompletion={this.handleGameCompletion}
                     gameCompletedStatus={this.state.gameCompletedStatus}
+                    incrementTotalMisses={this.incrementTotalMisses}
+                    totalMisses={this.state.totalMisses}
                 /> : <></>}
             </div>
         )

@@ -24,7 +24,7 @@ export default class Timer extends Component {
             body: JSON.stringify({ 
                 user_id: this.props.userId,
                 seconds_to_complete: this.state.count,
-                total_misses: null
+                total_misses: this.props.totalMisses
             })
         })
 

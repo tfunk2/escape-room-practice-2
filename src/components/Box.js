@@ -28,8 +28,10 @@ export default class Box extends Component {
         
         if (this.props.checkBackpackForItem(this.props.box) || this.props.box.unlockable === 'welcome-box') {
             this.setState({ [this.props.box.unlockable]: true })
+        } else {
+            this.props.incrementTotalMisses()
         }
-        
+
         if (this.state["master-lock"] === true) {
             this.props.handleGameCompletion()
         }

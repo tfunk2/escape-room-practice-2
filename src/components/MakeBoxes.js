@@ -16,6 +16,8 @@ export default function MakeBoxes(props) {
             backpackItems={props.backpackItems}
             handleGameCompletion={props.handleGameCompletion}
             gameCompletedStatus={props.gameCompletedStatus}
+            incrementTotalMisses={props.incrementTotalMisses}
+            totalMisses={props.totalMisses}
         />
     })
 
