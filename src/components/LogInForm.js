@@ -17,7 +17,6 @@ export default function LogInForm(props) {
             })
         }).then(response => response.json())
             .then(result => {
-                console.log("login", result)
                 localStorage.setItem("token", result.token);
                 if (result.token) {
                     props.loginStatusUpdate("successful");
