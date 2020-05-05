@@ -6,40 +6,50 @@ export default class Box extends Component {
     // const { box, elementId, addToBackpack, checkBackpackForItem } = props
 
     state = {
-        1 : false,
-        2 : false,
-        3 : false,
-        4 : false,
-        5 : false,
-        6 : false,
-        7 : false,
-        8 : false,
-        9 : false,
-        10 : false,
-        11 : false,
-        12 : false,
-        13 : false,
-        14 : false,
-        15 : false,
-        16 : false,
+        "welcome-box" : false,
+        "four-screws" : false,
+        "unlit-wood" : false,
+        "safe" : false,
+        "button-under-water" : false,
+        "dark-box" : false,
+        "logs" : false,
+        "empty-battery-slots" : false,
+        "four-nails" : false,
+        "pallet-with-rope" : false,
+        "wooden-box" : false,
+        "keypad-with-swipe" : false,
+        "new-keyhole" : false,
+        "boulder" : false,
+        "old-keyhole" : false,
+        "master-lock" : false
     }
 
     handleClick = () => {
+        console.log("1", this.state["welcome-box"])
+        console.log("2", this.props.box.unlockable)
         if (this.props.checkBackpackForItem(this.props.box) || this.props.box.unlockable === 'welcome-box') {
-            this.setState({ [this.props.box.id]: true })
+            this.setState({ [this.props.box.unlockable]: true })
+            console.log("3", this.state["welcome-box"])
         }
+        if (this.state["master-lock"] === true) {
+            this.props.handleGameCompletion()
+        } else {
+            console.log("nope")
+        }
+        console.log("4", this.state["welcome-box"])
+
     }
 
     render() {
         return (
             <li 
-                className={this.state[this.props.box.id] ? 'open-box' : 'box'} 
+                className={this.state[this.props.box.unlockable] ? 'open-box' : 'box'} 
                 id={this.props.box.unlockable} 
                 onClick={this.handleClick}
             >
                 <div id={`tool-text-${this.props.elementId}`}>
                     {
-                        this.state[this.props.box.idNumber] === true &&
+                        this.state[this.props.box.unlockable] === true &&
                         !this.props.backpackItems.find(bpItem => bpItem === this.props.box) ? 
                         <Tool 
                             box={this.props.box} 
