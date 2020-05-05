@@ -8,7 +8,7 @@ export default function Backpack(props) {
     const makeBackpackItems = props.backpackItems.map(backpackItem => {
         i += 1
         const newId = `backpack-item-${i}`
-        return <BackpackItem backpackItem={backpackItem} backpackId={newId} key={backpackItem.id} />
+        return <BackpackItem backpackItem={backpackItem} backpackId={newId} key={`backpack-item-${backpackItem.id}`} />
     })
 
     return (
