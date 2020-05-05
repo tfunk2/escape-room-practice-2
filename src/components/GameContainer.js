@@ -30,6 +30,10 @@ export default class GameContainer extends Component {
         this.setState({ totalMisses: this.state.totalMisses + 1 })
     }
 
+    resetTotalMisses = () => {
+        this.setState({ totalMisses: 0})
+    }
+
     setUserId = (user) => {
         this.setState({ userId: user.id })
     }
@@ -58,6 +62,7 @@ export default class GameContainer extends Component {
                         totalMisses={this.state.totalMisses} 
                         userId={this.state.userId} 
                         gameStartedStatus={this.state.gameStartedStatus}
+                        resetTotalMisses={this.resetTotalMisses}
                     /> : <></>
                 }
                 {

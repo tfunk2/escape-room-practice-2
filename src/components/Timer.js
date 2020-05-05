@@ -28,7 +28,7 @@ export default class Timer extends Component {
             })
         })
 
-
+        this.props.resetTotalMisses()
         clearInterval(this.myInterval)
     }
 
