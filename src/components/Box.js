@@ -25,18 +25,14 @@ export default class Box extends Component {
     }
 
     handleClick = () => {
-        console.log("1", this.state["welcome-box"])
-        console.log("2", this.props.box.unlockable)
+        
         if (this.props.checkBackpackForItem(this.props.box) || this.props.box.unlockable === 'welcome-box') {
             this.setState({ [this.props.box.unlockable]: true })
-            console.log("3", this.state["welcome-box"])
         }
+        
         if (this.state["master-lock"] === true) {
             this.props.handleGameCompletion()
-        } else {
-            console.log("nope")
         }
-        console.log("4", this.state["welcome-box"])
 
     }
 
