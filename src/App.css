@@ -353,3 +353,19 @@
     animation: slightlyGrow 1s linear infinite;
     animation-play-state: playing;
 }
+
+.input-valid {
+    background-color: lawngreen;
+}
+
+.input-invalid {
+    background-color: red;
+}
+
+#create-username-input, 
+#create-password-input, 
+#login-username-input, 
+#login-password-input {
+    background-color: white;
+}
+
