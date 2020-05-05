@@ -120,6 +120,16 @@ class GamePageContainer extends Component {
     }
   }
 
+  resetBackpackItems = () => {
+    this.setState({ backpackItems: [
+      {
+        unlockable: null, 
+        toolUsedToUnlock: null,
+        tool: "pocket knife"
+      }
+    ]})
+  }
+
   render() {
     return (
       <div className="game-page-container">
@@ -134,6 +144,7 @@ class GamePageContainer extends Component {
           addToBackpack={this.addToBackpack}
           checkBackpackForItem={this.checkBackpackForItem}
           backpackItems={this.state.backpackItems}
+          resetBackpackItems={this.resetBackpackItems}
         />
       </div>
     );

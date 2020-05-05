@@ -14,6 +14,8 @@ export default function MakeBoxes(props) {
             addToBackpack={props.addToBackpack}
             checkBackpackForItem={props.checkBackpackForItem}
             backpackItems={props.backpackItems}
+            handleGameCompletion={props.handleGameCompletion}
+            gameCompletedStatus={props.gameCompletedStatus}
         />
     })
 
