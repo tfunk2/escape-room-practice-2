@@ -6,13 +6,33 @@ export default class GameContainer extends Component {
 
     state = {
         gameStartedStatus: false,
-        gameCompletedStatus: false
+        gameCompletedStatus: false,
+        userId: null
+    }
+
+    componentDidMount() {
+        fetch('http://localhost:3000/users', {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.token}`
+            }
+        }).then(response => response.json())
+            .then(users => this.findUserInfo(users))
+    }
+    
+    findUserInfo = (users) => {
+        this.setUserId(users.find(user => user.username === this.props.usernameState))
+    }
+
+    setUserId = (user) => {
+        this.setState({ userId: user.id })
     }
 
     handleClick = () => {
         this.setState({ gameCompletedStatus: false })
         this.setState({ gameStartedStatus: true })
     }
+
 
     handleGameCompletion = () => {
         this.setState({ gameCompletedStatus: true })
@@ -28,7 +48,7 @@ export default class GameContainer extends Component {
                 {
                     this.state.gameStartedStatus === true && 
                     this.state.gameCompletedStatus !== true ? 
-                    <Timer gameStartedStatus={this.state.gameStartedStatus}/> : <></>
+                    <Timer userId={this.state.userId} gameStartedStatus={this.state.gameStartedStatus}/> : <></>
                 }
                 {this.state.gameStartedStatus === true ? <MakeBoxes 
                     boxes={this.props.boxes} 
