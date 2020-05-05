@@ -23,55 +23,38 @@ export default function BackpackItem(props) {
         switch(props.backpackItem.tool) {
             case 'pocket knife':
               return pocketKnife;
-              break;
             case 'screwdriver':
               return screwdriver;
-              break;
             case 'lighter':
               return lighter;
-              break;
             case 'stethoscope':
               return stethoscope;
-              break;
             case 'straw':
               return straw;
-              break;
             case 'flashlight':
               return flashlight;
-              break;
             case 'chain saw':
               return chainSaw;
-              break;
             case 'batteries':
               return batteries;
-              break;
             case 'hammer':
               return hammer;
-              break;
             case 'scissors':
               return scissors;
-              break;
             case 'crowbar':
               return crowbar;
-              break;
             case 'credit card':
               return creditCard;
-              break;
             case 'lockpick':
               return lockpick;
-              break;
             case 'dynamite':
               return dynamite;
-              break;
             case 'paper clip':
               return paperClip;
-              break;
             case 'master key':
               return masterKey;
-              break;
             case 'You found the treasure!':
               return treasure;
-              break;
             default:
               return null;
           }
