@@ -20,10 +20,11 @@ body {
 
 .backpack {
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     justify-content: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     list-style-type: none;
+    overflow-x: auto;
 }
 
 .box {
@@ -80,6 +81,19 @@ body {
     text-align: center;
     margin-right: 10px;
     margin-left: 10px;
+    margin-bottom: 10px;
+    color: white;
+    /* border: 6.5px rgba(76, 0, 255, 0.596); */
+    border: 3px ridge transparent;
+    border-image: linear-gradient(to bottom, rgba(0, 255, 0, 0.596),  rgba(76, 0, 255, 0.596));
+    border-image-slice: 1;
+    border-style: ridge;
+    font-family: 'NTR', sans-serif;
+    font-size: 1.5vw;
+}
+
+li p {
+    text-transform: capitalize;
 }
 
 .open-box {
@@ -368,7 +382,7 @@ body {
     border: 1.5px solid rgba(3, 116, 8, 0.541);
 
     caret-color: rgba(0, 255, 0, 0.400);
-    background-color: rgba(255, 255, 255, 0);
+    /* background-color: rgba(255, 255, 255, 0); */
     padding: 4pt;
     /* font-size: 1.2vw; */
     margin-bottom: 5px;
@@ -529,19 +543,21 @@ input[type=text]:focus, input[type=password]:focus {
 .treasure-image {
     max-width: 50%;
     min-width: 50%;
+    cursor: pointer;
 }
 
 #treasure-image-div {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    position: fixed;
+    position: static;
 }
 
 .game-result-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 60px;
 }
 
 #game-result-info {
@@ -563,4 +579,66 @@ input[type=text]:focus, input[type=password]:focus {
 .victory-text {
     font-family: 'NTR', sans-serif;
     font-size: 2vw;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.game-container-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    width: 15%;
+    font-size: 1.5vw;
+    background-color: rgba(27, 194, 33, 0.664);
+    border: none;
+    color: rgb(48, 47, 47);
+    padding-bottom: 2px;
+    padding-top: 2px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: 'Bungee', cursive;
+    margin-bottom: 10px;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    background-color: rgba(27, 194, 33, 0.932);
+    animation: slightlyGrow 1s linear infinite;
+}
+
+button:active {
+  background-color: rgba(27, 194, 33, 0.932);
+  transform: translateY(4px);
+}
+
+#timer-and-misses-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#timer-and-misses-div h1 {
+    margin: 0px;
+}
+
+#click-treasure {
+    font-family: 'NTR', sans-serif;
+    font-size: 2vw;
+}
+
+.leader-board-div {
+    min-height: 80%;
+}
+
+.leader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }

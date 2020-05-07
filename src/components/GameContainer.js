@@ -12,7 +12,8 @@ export default class GameContainer extends Component {
         userId: null,
         totalMisses: 0,
         mostRecentTime: null,
-        mostRecentTotalMisses: null
+        mostRecentTotalMisses: null,
+        leaderBoardClicked: false
     }
 
     componentDidMount() {
@@ -23,10 +24,20 @@ export default class GameContainer extends Component {
             }
         }).then(response => response.json())
             .then(users => this.findUserInfo(users))
+
+            window.scrollTo(50, 50)
     }
     
     findUserInfo = (users) => {
         this.setUserInfo(users.find(user => user.username === this.props.usernameState))
+    }
+
+    setLeaderBoardStatus = () => {
+        if (this.state.leaderBoardClicked === false) {
+            this.setState({ leaderBoardClicked: true})
+        } else {
+            this.setState({ leaderBoardClicked: false})
+        }
     }
 
     incrementTotalMisses = () => {
@@ -61,12 +72,18 @@ export default class GameContainer extends Component {
     render() {
         return (
             <div className="game-container">
-                <h2>Find the loot swiftly and accurately!</h2>
-                <button onClick={this.handleClick}>Start Game!</button>
+                {
+                    this.state.gameStartedStatus === false ?
+                        <div className="game-container-header">
+                            <h2>{this.state.gameCompletedStatus === false ? 
+                            "Grab the loot swiftly and accurately!" : ""}</h2>
+                            <button onClick={this.handleClick}>Start Game!</button>
+                        </div> : <></>
+                }
                 {
                     this.state.gameStartedStatus === true && 
                     this.state.gameCompletedStatus !== true ? 
-                    <>
+                    <div id="timer-and-misses-div">
                         <Timer 
                             totalMisses={this.state.totalMisses} 
                             userId={this.state.userId} 
@@ -77,7 +94,7 @@ export default class GameContainer extends Component {
                         <TotalMisses 
                         totalMisses={this.state.totalMisses} 
                         />
-                    </> : <></>
+                    </div> : <></>
                 }
                 
                 {
@@ -100,6 +117,8 @@ export default class GameContainer extends Component {
                         mostRecentTime={this.state.mostRecentTime}
                         mostRecentTotalMisses={this.state.mostRecentTotalMisses}
                         usernameState={this.props.usernameState}
+                        setLeaderBoardStatus={this.setLeaderBoardStatus}
+                        leaderBoardClicked={this.state.leaderBoardClicked}
                     /> : <></>
                 }
             </div>

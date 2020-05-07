@@ -41,7 +41,7 @@ export default class Box extends Component {
     render() {
         return (
             <li 
-                className={this.state[this.props.box.unlockable] ? 'open-box' : 'box'} 
+                className={this.state[this.props.box.unlockable] ? 'open-box animated zoomOut delay-5s' : 'box'} 
                 id={this.props.box.unlockable} 
                 onClick={this.handleClick}
             >
