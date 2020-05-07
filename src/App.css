@@ -525,3 +525,42 @@ input[type=text]:focus, input[type=password]:focus {
 ::placeholder {
     color: rgb(40, 40, 40 );
   }
+
+.treasure-image {
+    max-width: 50%;
+    min-width: 50%;
+}
+
+#treasure-image-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: fixed;
+}
+
+.game-result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#game-result-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#most-recent-score {
+    font-size: 30pt;
+}
+
+
+.most-recent-score-span {
+    font-family: 'Bungee', cursive;
+    font-size: 3vw;
+}
+
+.victory-text {
+    font-family: 'NTR', sans-serif;
+    font-size: 2vw;
+}
