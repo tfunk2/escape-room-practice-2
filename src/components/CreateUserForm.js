@@ -29,13 +29,12 @@ export default class CreateUserForm extends Component {
             .then(result => {
                 console.log(result)
                 this.creationStatus(result)
-            })
+            }).then(this.setState({ createUserStatus: null }))
         
             this.setState({
                 username: "",
                 password: ""
             })
-
     }
 
     creationStatus = (userObject) => {
@@ -57,13 +56,48 @@ export default class CreateUserForm extends Component {
 
     }
 
+    whichFormClass = () => {
+        switch(this.state.createUserStatus) {
+            case null:
+                return "create-user-form";
+            case "successful":
+                return "create-user-form animated bounce fast";
+            case "unsuccessful":
+                return "create-user-form animated shake fast";
+            default:
+                console.log("whichFormClass - something went wrong")
+        }
+    }
+
+    whichInputClass = () => {
+        switch(this.state.createUserStatus) {
+            case null:
+                return "create-username-input";
+            case "successful":
+                return "input-valid";
+            case "unsuccessful":
+                return "input-invalid";
+            default:
+                console.log("whichFormClass - something went wrong")
+        }
+    }
+
     render() {
         return (
-            <div className="log-in-form-div">
-                <form name="user" className="create-user-form" onSubmit={this.handleSubmit}>
+            <div className="create-user-form-div animated bounceInRight delay-1s">
+                <form 
+                    name="user" 
+                    className={this.whichFormClass()} 
+                    onSubmit={this.handleSubmit} 
+                    autoComplete="off"
+                    >
                     <input 
-                        id={this.state.createUserStatus === null ? "create-username-input" : ""  }
-                        className={this.state.createUserStatus === "successful" ? "input-valid" : "input-invalid"}
+                        id={
+                            this.state.createUserStatus === null || 
+                            this.state.createUserStatus === "successful" ? 
+                            "create-username-input" : null  
+                        }
+                        className={this.whichInputClass()}
                         type="text" 
                         name="username" 
                         value={this.state.username} 
@@ -71,9 +105,13 @@ export default class CreateUserForm extends Component {
                         placeholder="Username"
                     />
                     <input 
-                        id={this.state.createUserStatus === null ? "create-password-input" : ""  }
-                        className={this.state.createUserStatus === "successful" ? "input-valid" : "input-invalid"}
-                        type="text" 
+                        id={
+                            this.state.createUserStatus === null || 
+                            this.state.createUserStatus === "successful" ? 
+                            "create-password-input" : null  
+                        }
+                        className={this.whichInputClass()}
+                        type="password" 
                         name="password" 
                         value={this.state.password} 
                         onChange={this.handleChange}

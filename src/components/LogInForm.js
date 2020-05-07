@@ -5,6 +5,7 @@ export default function LogInForm(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        localStorage.removeItem("token")
         fetch('http://localhost:3000/login', {
             method: "POST",
             headers: {
@@ -18,9 +19,8 @@ export default function LogInForm(props) {
         }).then(response => response.json())
             .then(result => {
                 localStorage.setItem("token", result.token);
-                if (result.token) {
+                if (localStorage.getItem("token")) {
                     props.loginStatusUpdate("successful");
-                    
                 } else {
                     props.loginStatusUpdate("unsuccessful");
                 }
@@ -29,8 +29,13 @@ export default function LogInForm(props) {
     }
 
     return (
-        <div className="log-in-form-div">
-            <form name="user" className="log-in-form" onSubmit={handleSubmit}>
+        <div className="log-in-form-div animated bounceInLeft delay-1s">
+            <form 
+                name="user" 
+                className={`log-in-form ${props.loginStatus === "unsuccessful" ? "animated shake" : ""}`} 
+                onSubmit={handleSubmit} 
+                autoComplete="off"
+            >
                 <input 
                     id={props.loginStatus === null ? "login-username-input" : ""  }
                     className={props.loginStatus === "unsuccessful" ? "input-invalid" : "login-input" }
@@ -43,7 +48,7 @@ export default function LogInForm(props) {
                 <input 
                     id={props.loginStatus === null ? "login-password-input" : ""  }
                     className={props.loginStatus === "unsuccessful" ? "input-invalid" : "login-input"}
-                    type="text" 
+                    type="password" 
                     name="password" 
                     value={props.passwordState} 
                     onChange={props.handleChange}
