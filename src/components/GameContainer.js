@@ -55,6 +55,11 @@ export default class GameContainer extends Component {
     handleClick = () => {
         this.setState({ gameCompletedStatus: false })
         this.setState({ gameStartedStatus: true })
+        this.props.changeGameStartStatus()
+        // window.scrollTo({
+        //     top: 100,
+        //     behavior: 'smooth'
+        //   });
     }
 
 
@@ -75,9 +80,11 @@ export default class GameContainer extends Component {
                 {
                     this.state.gameStartedStatus === false ?
                         <div className="game-container-header">
-                            <h2>{this.state.gameCompletedStatus === false ? 
+                            <h2 id="welcome-instruction">{this.state.gameCompletedStatus === false ? 
                             "Grab the loot swiftly and accurately!" : ""}</h2>
-                            <button onClick={this.handleClick}>Start Game!</button>
+                            <button type="button" className="start-button" onClick={this.handleClick}>
+                                Start Game!
+                            </button>
                         </div> : <></>
                 }
                 {
@@ -90,6 +97,8 @@ export default class GameContainer extends Component {
                             gameStartedStatus={this.state.gameStartedStatus}
                             resetTotalMisses={this.resetTotalMisses}
                             setMostRecentScore={this.setMostRecentScore}
+                            changeGameStartStatus={this.props.changeGameStartStatus}
+                            dummyDiv={this.props.dummyDiv}
                         />
                         <TotalMisses 
                         totalMisses={this.state.totalMisses} 
