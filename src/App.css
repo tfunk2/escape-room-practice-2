@@ -14,7 +14,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background: linear-gradient(240deg, rgba(76, 0, 255, 0.83), rgba(76,0,255,0) 80%),
-                linear-gradient(120deg, rgba(0, 255, 0, 0.83), rgba(0,255,0,0) 80%),
+                linear-gradient(120deg, rgba(73, 235, 146, 0.8), rgba(73,235,146,0) 80%),
                 linear-gradient(360deg, rgba(0, 225, 255, 0.83), rgba(0,225,255,0) 80%);
 }
 
@@ -85,7 +85,7 @@ body {
     color: white;
     /* border: 6.5px rgba(76, 0, 255, 0.596); */
     border: 3px ridge transparent;
-    border-image: linear-gradient(to bottom, rgba(0, 255, 0, 0.596),  rgba(76, 0, 255, 0.596));
+    border-image: linear-gradient(to bottom, rgba(73, 235, 146, 0.8),  rgba(76, 0, 255, 0.596));
     border-image-slice: 1;
     border-style: ridge;
     font-family: 'NTR', sans-serif;
@@ -486,9 +486,12 @@ li p {
     bottom: 10px; 
     left: 0px;
     background: linear-gradient(240deg, rgba(76, 0, 255, 0.83), rgba(76,0,255,0) 80%),
-                linear-gradient(120deg, rgba(0, 255, 0, 0.83), rgba(0,255,0,0) 80%),
+                linear-gradient(120deg, rgba(73, 235, 146, 0.8), rgba(73,235,146,0) 80%),
                 linear-gradient(360deg, rgba(0, 225, 255, 0.83), rgba(0,225,255,0) 80%);
 }
+
+
+
 
 input[type=text], input[type=password] {
     width: 100%;
@@ -500,13 +503,13 @@ input[type=text], input[type=password] {
     color: rgb(20, 20, 20);
     font-size: 1vw;
     font-family: 'NTR', sans-serif;
-    caret-color: rgba(0, 255, 0, 0.400);
+    caret-color: rgba(73, 235, 146, 0.4);
 }
 
 input[type=submit] {
     width: 100%;
     font-size: 1vw;
-    background-color: rgba(27, 194, 33, 0.664);
+    background-color: rgba(73, 235, 146, 0.664);
     border: none;
     color: rgba(80, 80, 80, 0.7);
     padding-bottom: 2px;
@@ -524,11 +527,11 @@ input[type=submit]:focus {
 }
 
 input[type=submit]:hover {
-    background-color: rgba(27, 194, 33, 0.932);
+    background-color: rgba(73, 235, 146, 0.932);
 }
 
 input[type=submit]:active {
-  background-color: rgba(27, 194, 33, 0.932);
+  background-color: rgba(73, 235, 146, 0.664));
   transform: translateY(4px);
 }
 
@@ -592,7 +595,7 @@ input[type=text]:focus, input[type=password]:focus {
 button {
     width: 15%;
     font-size: 1.5vw;
-    background-color: rgba(27, 194, 33, 0.664);
+    background-color: rgba(73, 235, 146, 0.664);
     border: none;
     color: rgb(48, 47, 47);
     padding-bottom: 2px;
@@ -609,12 +612,12 @@ button:focus {
 }
 
 button:hover {
-    background-color: rgba(27, 194, 33, 0.932);
+    background-color: rgba(73, 235, 146, 0.932);
     animation: slightlyGrow 1s linear infinite;
 }
 
 button:active {
-  background-color: rgba(27, 194, 33, 0.932);
+  background-color: rgba(73, 235, 146, 0.664);
   transform: translateY(4px);
 }
 
@@ -641,4 +644,17 @@ button:active {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.sub-logo {
+    max-width: 400px;
+    min-width: 400px;
+}
+
+.sub-title {
+    font-family: 'Bungee', cursive;
+    font-size: 3vw;
+    background: -webkit-gradient(linear, 0 0%, 0 70%, from(rgba(76, 0, 255, 0.800)), to(rgba(73, 235, 146, 0.8)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

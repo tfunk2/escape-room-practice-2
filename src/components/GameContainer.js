@@ -25,7 +25,7 @@ export default class GameContainer extends Component {
         }).then(response => response.json())
             .then(users => this.findUserInfo(users))
 
-            window.scrollTo(50, 50)
+            // window.scrollTo(50, 50)
     }
     
     findUserInfo = (users) => {

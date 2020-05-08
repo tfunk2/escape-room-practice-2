@@ -33,6 +33,27 @@ export default function GameResultContainer(props) {
         }
     }
 
+    const sortByMissesThenSeconds = (allGames) => {
+        let firstSort = allGames.sort((a, b) => a.total_misses-b.total_misses)
+        let distinctValues = []
+        
+        firstSort.forEach(game => {
+          if( !(distinctValues.includes(game.total_misses)) ){
+            distinctValues = [...distinctValues, game.total_misses]
+          }
+        }) 
+        
+        let arrayOfGroupedGames = distinctValues.map(value => {
+          return firstSort.filter(game => value === game.total_misses)
+        })
+        
+        let arrayOfSortedGroupedGames = arrayOfGroupedGames.map(smallArrayOfGames => {
+          return smallArrayOfGames.sort((a,b) => a.seconds_to_complete - b.seconds_to_complete)
+        })
+        
+        return arrayOfSortedGroupedGames.flat()
+      }
+      
     return(
         <div className="game-result-container">
             <div id="game-result-info">
@@ -53,7 +74,11 @@ export default function GameResultContainer(props) {
                             onClick={props.setLeaderBoardStatus}
                         >
                         </img>
-                    </> : <LeaderBoard leaderBoardClicked={props.leaderBoardClicked}/>
+                    </> : 
+                    <LeaderBoard  
+                        leaderBoardClicked={props.leaderBoardClicked}
+                        sortByMissesThenSeconds={sortByMissesThenSeconds}
+                    />
                 }
             </div>
         </div>

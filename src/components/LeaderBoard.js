@@ -3,8 +3,8 @@ import Leaders from './Leaders'
 
 export default class LeaderBoard extends Component {
     state = {
-        topTen: [],
-        users: []
+        users: [],
+        topTen: []
     }
 
     componentDidMount() {
@@ -14,7 +14,10 @@ export default class LeaderBoard extends Component {
                 "Authorization": `Bearer ${localStorage.token}`
             }
         }).then(response => response.json())
-            .then(games => this.setTopTen(games))
+            .then(games => {
+                this.setState({ topTen: this.props.sortByMissesThenSeconds(games).slice(0, 10) })
+            })
+            
 
         fetch('http://localhost:3000/users', {
             headers: {
@@ -28,20 +31,14 @@ export default class LeaderBoard extends Component {
             })
     } 
 
-    setTopTen = (games) => {
-        this.setState({ topTen: games.sort(function(a, b) {
-            return parseInt(a.total_misses) - parseInt(b.total_misses);
-        }).sort(function(c, d) {
-            return parseInt(c.seconds_to_complete) - parseInt(d.seconds_to_complete);
-        }).slice(0, 10)})
-    }
-    
-
-
     render() {
         return(
             <div className="leader-board-div">
-                <Leaders leaderBoardClicked={this.props.leaderBoardClicked} topTen={this.state.topTen} users={this.state.users}/>
+                <Leaders 
+                    leaderBoardClicked={this.props.leaderBoardClicked} 
+                    topTen={this.state.topTen} 
+                    users={this.state.users}
+                />
             </div>
         )
     }

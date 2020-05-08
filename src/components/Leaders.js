@@ -5,7 +5,13 @@ export default function Leaders(props) {
     let i = 0
     const makeLeaders = props.topTen.map(leader => {
         i += 1
-        return <Leader ranking={i} leaderBoardClicked={props.leaderBoardClicked} key={`leader-${i}`} leader={leader} users={props.users}/>
+        return <Leader 
+            ranking={i} 
+            leaderBoardClicked={props.leaderBoardClicked} 
+            key={`leader-${i}`} 
+            leader={leader} 
+            users={props.users}
+        />
     })
 
     return(

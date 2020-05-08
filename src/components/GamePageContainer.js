@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import GameContainer from './GameContainer'
 import Backpack from './Backpack'
+import subLogo from '../images/green-blue-gradient.png'
+
 
 const allBoxes = [
   {
@@ -134,7 +136,11 @@ class GamePageContainer extends Component {
     return (
       <div className="game-page-container">
         <header className="game-page-header">
-          <h1>Escape Room Game Practice</h1>
+          <h1 className="sub-title">Loot</h1>
+          <div className="sub-logo-container">
+            <img className="sub-logo" src={subLogo}></img>
+          </div>
+          <h1 className="sub-title">Puzzle</h1>
         </header>
         <Backpack 
           backpackItems={this.state.backpackItems}
