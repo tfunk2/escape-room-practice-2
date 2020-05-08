@@ -4,7 +4,7 @@ export default function TotalMisses(props) {
 
     return(
         <div className="total-misses-div">
-            <h1>{`Total Misses: ${props.totalMisses}`}</h1>
+            <h1>{`Misses: ${props.totalMisses}`}</h1>
         </div>
     )
     
