@@ -109,6 +109,10 @@ class GamePageContainer extends Component {
     this.setState({ boxes: this.shuffle(allBoxes) })
   }
 
+  resetShuffle = () => {
+    this.setState({ boxes: this.shuffle(this.state.boxes) })
+  }
+
   addToBackpack = (boxItem) => {
     if (!this.state.backpackItems.find(backpackItem => backpackItem === boxItem)) {
       this.setState({ backpackItems: [...this.state.backpackItems, boxItem] })
@@ -145,11 +149,11 @@ class GamePageContainer extends Component {
     return (
       <div className="game-page-container">
         <header className="game-page-header">
-          <h1 id="loot-sub-title" className="sub-title animated bounceInDown delay-1s">Loot</h1>
+          <h1 id="loot-sub-title" className="sub-title animated bounceInDown">Loot</h1>
           <div className="sub-logo-container">
-            <img alt="sub logo" className="sub-logo animated flipInX fast delay-2s" src={subLogo}></img>
+            <img alt="sub logo" className="sub-logo animated flipInX fast delay-1s" src={subLogo}></img>
           </div>
-          <h1 id="puzzle-sub-title" className="sub-title animated bounceInUp delay-1s">Puzzle</h1>
+          <h1 id="puzzle-sub-title" className="sub-title animated bounceInUp">Puzzle</h1>
         </header>
         {this.state.gameStartStatus === true ?
           <Backpack 
@@ -165,6 +169,7 @@ class GamePageContainer extends Component {
           resetBackpackItems={this.resetBackpackItems}
           changeGameStartStatus={this.changeGameStartStatus}
           dummyDiv={this.props.dummyDiv}
+          resetShuffle={this.resetShuffle}
         />
       </div>
     );

@@ -597,6 +597,7 @@ input[type=text]:focus, input[type=password]:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 1vw;
 }
 
 button {
@@ -733,8 +734,36 @@ button:active {
     font-size: 3vw;
 }
 
+.top-ten-span, .leader-board-numbers {
+    font-family: 'Bungee', cursive;
+    font-size: 3vw;
+    
+}
+
+.leader-board-numbers {
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+#top-ten-title {
+    font-size: 6vw;
+    background: -webkit-gradient(linear, 0 125%, 0 0%, from(rgba(76, 0, 255, 0.800)), to(rgba(73, 235, 146, 0.8)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 #timer-word,
 #misses-word {
     margin-right: 10px;
     position: static;
+}
+
+#leader-1 span.leader-board-numbers {
+    font-size: 4vw;
+}
+
+.leader h2#ranking span.leader-board-numbers {
+    background: -webkit-gradient(linear, 0 0%, 0 0%, from(rgba(76, 0, 255, 0.800)), to(rgba(73, 235, 146, 0.8)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

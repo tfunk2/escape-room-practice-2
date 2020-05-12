@@ -62,45 +62,6 @@ export default function Tool(props) {
           }
     }
 
-    // function whichOpenContainerImage() {
-    //     switch(box.tool) {
-    //         case '':
-    //           return screwdriver;
-    //         case '':
-    //           return lighter;
-    //         case '':
-    //           return stethoscope;
-    //         case '':
-    //           return straw;
-    //         case '':
-    //           return flashlight;
-    //         case '':
-    //           return chainSaw;
-    //         case '':
-    //           return batteries;
-    //         case '':
-    //           return hammer;
-    //         case '':
-    //           return scissors;
-    //         case '':
-    //           return crowbar;
-    //         case '':
-    //           return creditCard;
-    //         case '':
-    //           return lockpick;
-    //         case '':
-    //           return dynamite;
-    //         case '':
-    //           return paperClip;
-    //         case '':
-    //           return masterKey;
-    //         case '':
-    //           return treasure;
-    //         default:
-    //           return null;
-    //       }
-    // }
-
     return (
         <div className='tool-div'>
             <img 

@@ -28,8 +28,6 @@ export default class GameContainer extends Component {
                 this.findUserInfo(users);
                 this.setState({ users });
             })
-
-            // window.scrollTo(50, 50)
     }
     
     findUserInfo = (users) => {
@@ -60,10 +58,12 @@ export default class GameContainer extends Component {
         this.setState({ gameCompletedStatus: false })
         this.setState({ gameStartedStatus: true })
         this.props.changeGameStartStatus()
-        // window.scrollTo({
-        //     top: 100,
-        //     behavior: 'smooth'
-        //   });
+        if (this.state.gameCompletedStatus === true) {
+            this.props.resetShuffle()
+            if (this.state.leaderBoardClicked === true) {
+                this.setLeaderBoardStatus()
+            }
+        }
     }
 
 
@@ -87,7 +87,7 @@ export default class GameContainer extends Component {
                             <h2 id="welcome-instruction">{this.state.gameCompletedStatus === false ? 
                             "Grab the loot swiftly and accurately!" : ""}</h2>
                             <button type="button" className="start-button" onClick={this.handleClick}>
-                                Start Game!
+                                {this.state.gameCompletedStatus === true ? "Start New Game!" : "Start game!"}
                             </button>
                         </div> : <></>
                 }
@@ -133,6 +133,7 @@ export default class GameContainer extends Component {
                         setLeaderBoardStatus={this.setLeaderBoardStatus}
                         leaderBoardClicked={this.state.leaderBoardClicked}
                         users={this.state.users}
+                        dummyDiv={this.props.dummyDiv}
                     /> : <></>
                 }
             </div>
