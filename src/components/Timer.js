@@ -12,7 +12,13 @@ export default class Timer extends Component {
               count: prevState.count + 1
             }))
         }, 1000)
+
+        this.scrollToBottom()
     }
+
+    scrollToBottom = () => {
+        this.props.dummyDiv.scrollIntoView({ behavior: "smooth" });
+      }
 
     componentWillUnmount() {
         fetch('http://localhost:3000/games', {
@@ -29,13 +35,14 @@ export default class Timer extends Component {
         })
         this.props.setMostRecentScore(this.state.count)
         this.props.resetTotalMisses()
+        // this.props.changeGameStartStatus()
         clearInterval(this.myInterval)
     }
 
     render() {
         return (
             <div className="timer">
-                <h1>{this.props.gameStartedStatus === true && this.props.gameCompletedStatus !== true ? `Timer: ${this.state.count}` : <></>}</h1>
+                <h1>{this.props.gameStartedStatus === true && this.props.gameCompletedStatus !== true ? <div id="timer-word">Timer: <span className="game-number">{this.state.count}</span></div> : <></>}</h1>
             </div>
         )
     }

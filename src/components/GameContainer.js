@@ -13,7 +13,8 @@ export default class GameContainer extends Component {
         totalMisses: 0,
         mostRecentTime: null,
         mostRecentTotalMisses: null,
-        leaderBoardClicked: false
+        leaderBoardClicked: false,
+        users: []
     }
 
     componentDidMount() {
@@ -23,7 +24,10 @@ export default class GameContainer extends Component {
                 "Authorization": `Bearer ${localStorage.token}`
             }
         }).then(response => response.json())
-            .then(users => this.findUserInfo(users))
+            .then(users => {
+                this.findUserInfo(users);
+                this.setState({ users });
+            })
 
             // window.scrollTo(50, 50)
     }
@@ -55,6 +59,11 @@ export default class GameContainer extends Component {
     handleClick = () => {
         this.setState({ gameCompletedStatus: false })
         this.setState({ gameStartedStatus: true })
+        this.props.changeGameStartStatus()
+        // window.scrollTo({
+        //     top: 100,
+        //     behavior: 'smooth'
+        //   });
     }
 
 
@@ -75,9 +84,11 @@ export default class GameContainer extends Component {
                 {
                     this.state.gameStartedStatus === false ?
                         <div className="game-container-header">
-                            <h2>{this.state.gameCompletedStatus === false ? 
+                            <h2 id="welcome-instruction">{this.state.gameCompletedStatus === false ? 
                             "Grab the loot swiftly and accurately!" : ""}</h2>
-                            <button onClick={this.handleClick}>Start Game!</button>
+                            <button type="button" className="start-button" onClick={this.handleClick}>
+                                Start Game!
+                            </button>
                         </div> : <></>
                 }
                 {
@@ -90,6 +101,8 @@ export default class GameContainer extends Component {
                             gameStartedStatus={this.state.gameStartedStatus}
                             resetTotalMisses={this.resetTotalMisses}
                             setMostRecentScore={this.setMostRecentScore}
+                            changeGameStartStatus={this.props.changeGameStartStatus}
+                            dummyDiv={this.props.dummyDiv}
                         />
                         <TotalMisses 
                         totalMisses={this.state.totalMisses} 
@@ -119,6 +132,7 @@ export default class GameContainer extends Component {
                         usernameState={this.props.usernameState}
                         setLeaderBoardStatus={this.setLeaderBoardStatus}
                         leaderBoardClicked={this.state.leaderBoardClicked}
+                        users={this.state.users}
                     /> : <></>
                 }
             </div>

@@ -37,8 +37,13 @@ class App extends Component {
         }
         {
           this.state.loginStatus === "successful" ? 
-          <GamePageContainer usernameState={this.state.username} /> : <></>
+          <GamePageContainer usernameState={this.state.username} dummyDiv={this.dummyDiv} /> : <></>
         }
+        <div id="dummy-div"
+          style={{float:"center"}}
+          ref={(el) => { this.dummyDiv = el; }}
+        >
+        </div>
       </div>
     );
   }

@@ -97,7 +97,8 @@ class GamePageContainer extends Component {
         toolUsedToUnlock: null,
         tool: "pocket knife"
       }
-    ]
+    ],
+    gameStartStatus: false
   }
   
   shuffle = (array) => {
@@ -111,6 +112,14 @@ class GamePageContainer extends Component {
   addToBackpack = (boxItem) => {
     if (!this.state.backpackItems.find(backpackItem => backpackItem === boxItem)) {
       this.setState({ backpackItems: [...this.state.backpackItems, boxItem] })
+    }
+  }
+
+  changeGameStartStatus = () => {
+    if (this.state.gameStartStatus === false) {
+      this.setState({ gameStartStatus: true })
+    } else {
+      this.setState({ gameStartStatus: false })
     }
   }
 
@@ -136,15 +145,17 @@ class GamePageContainer extends Component {
     return (
       <div className="game-page-container">
         <header className="game-page-header">
-          <h1 className="sub-title">Loot</h1>
+          <h1 id="loot-sub-title" className="sub-title animated bounceInDown delay-1s">Loot</h1>
           <div className="sub-logo-container">
-            <img className="sub-logo" src={subLogo}></img>
+            <img alt="sub logo" className="sub-logo animated flipInX fast delay-2s" src={subLogo}></img>
           </div>
-          <h1 className="sub-title">Puzzle</h1>
+          <h1 id="puzzle-sub-title" className="sub-title animated bounceInUp delay-1s">Puzzle</h1>
         </header>
-        <Backpack 
-          backpackItems={this.state.backpackItems}
-        />
+        {this.state.gameStartStatus === true ?
+          <Backpack 
+            backpackItems={this.state.backpackItems}
+          /> : <></>
+        }
         <GameContainer 
           usernameState={this.props.usernameState}
           boxes={this.state.boxes} 
@@ -152,6 +163,8 @@ class GamePageContainer extends Component {
           checkBackpackForItem={this.checkBackpackForItem}
           backpackItems={this.state.backpackItems}
           resetBackpackItems={this.resetBackpackItems}
+          changeGameStartStatus={this.changeGameStartStatus}
+          dummyDiv={this.props.dummyDiv}
         />
       </div>
     );

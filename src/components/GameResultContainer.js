@@ -4,8 +4,6 @@ import LeaderBoard from './LeaderBoard'
 
 export default function GameResultContainer(props) {
 
-    // fetch username here using user id
-
     const whichSentence = () => {
         if (props.mostRecentTotalMisses === 0) {
             return `you did it with `
@@ -78,6 +76,7 @@ export default function GameResultContainer(props) {
                     <LeaderBoard  
                         leaderBoardClicked={props.leaderBoardClicked}
                         sortByMissesThenSeconds={sortByMissesThenSeconds}
+                        users={props.users}
                     />
                 }
             </div>
