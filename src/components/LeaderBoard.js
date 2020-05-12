@@ -3,7 +3,6 @@ import Leaders from './Leaders'
 
 export default class LeaderBoard extends Component {
     state = {
-        users: [],
         topTen: []
     }
 
@@ -16,19 +15,7 @@ export default class LeaderBoard extends Component {
         }).then(response => response.json())
             .then(games => {
                 this.setState({ topTen: this.props.sortByMissesThenSeconds(games).slice(0, 10) })
-            })
-            
-
-        fetch('http://localhost:3000/users', {
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${localStorage.token}`
-            }
-        }).then(response => response.json())
-            .then(users => {
-                this.setState({ users: users })
-                console.log(users)
-            })
+            })   
     } 
 
     render() {
@@ -37,7 +24,7 @@ export default class LeaderBoard extends Component {
                 <Leaders 
                     leaderBoardClicked={this.props.leaderBoardClicked} 
                     topTen={this.state.topTen} 
-                    users={this.state.users}
+                    users={this.props.users}
                 />
             </div>
         )

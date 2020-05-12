@@ -659,7 +659,9 @@ button:active {
 .leader {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    font-family: 'NTR', sans-serif;
+    font-size: 1.5vw;
 }
 
 .sub-logo {

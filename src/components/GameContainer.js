@@ -13,7 +13,8 @@ export default class GameContainer extends Component {
         totalMisses: 0,
         mostRecentTime: null,
         mostRecentTotalMisses: null,
-        leaderBoardClicked: false
+        leaderBoardClicked: false,
+        users: []
     }
 
     componentDidMount() {
@@ -23,7 +24,10 @@ export default class GameContainer extends Component {
                 "Authorization": `Bearer ${localStorage.token}`
             }
         }).then(response => response.json())
-            .then(users => this.findUserInfo(users))
+            .then(users => {
+                this.findUserInfo(users);
+                this.setState({ users });
+            })
 
             // window.scrollTo(50, 50)
     }
@@ -128,6 +132,7 @@ export default class GameContainer extends Component {
                         usernameState={this.props.usernameState}
                         setLeaderBoardStatus={this.setLeaderBoardStatus}
                         leaderBoardClicked={this.state.leaderBoardClicked}
+                        users={this.state.users}
                     /> : <></>
                 }
             </div>
