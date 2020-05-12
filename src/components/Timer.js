@@ -35,7 +35,7 @@ export default class Timer extends Component {
         })
         this.props.setMostRecentScore(this.state.count)
         this.props.resetTotalMisses()
-        // this.props.changeGameStartStatus()
+        this.props.changeGameStartStatus()
         clearInterval(this.myInterval)
     }
 

@@ -58,8 +58,12 @@ export default function GameResultContainer(props) {
                 <h1 className="victory-text">Well done {<span className="most-recent-score-span">{props.usernameState}</span>},</h1>
                 <h1 className="victory-text">You found the loot in {<span className="most-recent-score-span">{props.mostRecentTime}</span>} seconds,</h1>
                 <h1 className="victory-text">and {whichSentence()}{<span className="most-recent-score-span">{whichInfo()}</span>}{whichEnding()}</h1>
-                <h2 id="click-treasure">Click the treasure to compare your score to the Top 10!</h2>
-
+                <h2 id="click-treasure">{props.leaderBoardClicked === false ?
+                    <div id="click-treasure-div">Click the treasure to compare your score to the 
+                        <span className="top-ten-span">Top 10!</span>
+                    </div> : 
+                    <span id="top-ten-title" className="top-ten-span">Top 10</span>}
+                </h2>
             </div>
             
             <div id="treasure-image-div">
@@ -77,6 +81,7 @@ export default function GameResultContainer(props) {
                         leaderBoardClicked={props.leaderBoardClicked}
                         sortByMissesThenSeconds={sortByMissesThenSeconds}
                         users={props.users}
+                        dummyDiv={props.dummyDiv}
                     />
                 }
             </div>
