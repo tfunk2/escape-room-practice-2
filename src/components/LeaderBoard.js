@@ -7,7 +7,7 @@ export default class LeaderBoard extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3000/games', {
+        fetch('https://loot-puzzle-back-end.herokuapp.com/games', {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorage.token}`

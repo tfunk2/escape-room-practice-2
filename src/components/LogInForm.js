@@ -6,7 +6,7 @@ export default function LogInForm(props) {
     const handleSubmit = (event) => {
         event.preventDefault()
         localStorage.removeItem("token")
-        fetch('http://localhost:3000/login', {
+        fetch('https://loot-puzzle-back-end.herokuapp.com/login', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

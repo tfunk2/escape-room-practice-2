@@ -21,7 +21,7 @@ export default class Timer extends Component {
       }
 
     componentWillUnmount() {
-        fetch('http://localhost:3000/games', {
+        fetch('https://loot-puzzle-back-end.herokuapp.com/games', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

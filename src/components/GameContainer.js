@@ -18,7 +18,7 @@ export default class GameContainer extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3000/users', {
+        fetch('https://loot-puzzle-back-end.herokuapp.com/users', {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${localStorage.token}`
