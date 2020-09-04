@@ -21,6 +21,7 @@ export default function LogInForm(props) {
                 localStorage.setItem("token", result.token);
                 if (localStorage.getItem("token")) {
                     props.loginStatusUpdate("successful");
+                    props.resetPasswordAfterLogin()
                 } else {
                     props.loginStatusUpdate("unsuccessful");
                 }

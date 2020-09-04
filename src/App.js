@@ -19,6 +19,10 @@ class App extends Component {
   loginStatusUpdate = (status) => {
     this.setState({ loginStatus: status })
   }
+
+  resetPasswordAfterLogin = () => {
+    this.setState({ password: "" })
+  }
   
   render() {
     return (
@@ -33,6 +37,7 @@ class App extends Component {
             handleChange={this.handleChange} 
             loginStatus={this.state.loginStatus} 
             loginStatusUpdate={this.loginStatusUpdate}
+            resetPasswordAfterLogin={this.resetPasswordAfterLogin}
           /> : <></> 
         }
         {

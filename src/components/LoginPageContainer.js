@@ -23,6 +23,7 @@ export default function LoginPageContainer(props) {
                     handleChange={props.handleChange} 
                     loginStatus={props.loginStatus} 
                     loginStatusUpdate={props.loginStatusUpdate}
+                    resetPasswordAfterLogin={props.resetPasswordAfterLogin}
                 />
                 <CreateUserForm />
             </div>
